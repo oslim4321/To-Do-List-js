@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+<body  style="height: 100vh;">
+    
+    <div class="container">
+
+    <h1 style="margin: 20px auto; letter-spacing: 10px;">Daily <span style="color: orange;">work</span>-out</h1>
+    <h3 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Create your works</h3>
+    <div>
+        <input type="text" id="inp" class="form-control" style="width: 50%; margin: 20px 0;  color: black; ">
+        <button style="padding: 0, 40px;" class="btn btn-primary" onclick="add()">Add</button>
+        <button class="btn btn-danger" onclick="Delete()">Delete</button>
+    <!-- </div>
+    <div style="display: flex; align-items: center; justify-content: space-evenly;"  class="emoji">
+    <h1>&#128526</h1>
+    <h1>&#128578</h1>
+    <h1>&#128525</h1>
+    <h1>&#129324</h1>
+    <h1>&#128514</h1>
+    <h1>&#128520</h1>
+    <h1>&#129313</h1>
+    <h1>&#128564</h1>
+    <h1>&#129297</h1>
+</div> -->
+<br>
+    <a style="display: flex; justify-content: center; align-items: center; margin-bottom: 20px; font-weight: 200px; color: black; font-size: 2em; text-decoration: dotted; letter-spacing: 10px;" href="#">Listing</a>
+        <p style="display: flex; justify-content: center; align-items: center; letter-spacing: 3px; font-weight: 20px;">You have &nbsp;<span style="color: orange;" id="pending">0</span>&nbsp; Pending Task </p>
+    <div class="p-5 table">
+        <table class="table table-strip">
+            <tbody id="todo" style="color: black; ">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+    <!-- <script>
+
+          //  USING FOR LOOP TO GET ELEMENT IN todo
+
+          /* let frult=['mango','orange','cashew','apple',{name:'selim'}];
+
+    for(let [i,el] of frult.entries()){
+        console.log(el)
+    }
+
+    for(let el of frult){
+        console.log(el)
+    } */
+
+
+     /* let frults=['mango','orange','mango','mango','mango']
+
+function display(){
+ frults.forEach(function(elem,ind) {
+     console.log(elem,ind)
+     diff.innerHTML=frults
+    // console.log(elem)
+ }
+  )}
+  display() */
+
+         let frults=[ {title:'Will debug in the morning', done:false}, {title:'Code in the Afternoon', done:false} ]
+
+        function display(){
+            todo.innerHTML=''
+         frults.forEach(function(elem,i) {    
+            todo.innerHTML+=`<tr style="background: ${elem.done==true ? 'blueviolet' : 'grey'};" >
+            <td>${i+1}</td>
+            <td>${frults[i].title}</td>
+            <td><span class='fa fa-check text-danger' id='mark${i}'style="display: ${elem.done==true ? 'block' : 'none'}; font-size: 20px;"> </span></td>
+            <td><button class='btn btn-light border-danger' id='undo${i}' style="background: orange; color: white; border: none;" onclick='check(${i})'> ${elem.done==true ? 'undo' :'check'}</button></td>
+            <td><button class='btn btn-light border-danger' style="background: red; color: white; border: none;" onclick="Del(${i})">Clear</button></td>
+            </tr>`
+
+             //pending number
+       let pending=document.getElementById('pending')
+        pending.textContent =frults.length;
+
+         });
+         inp.value=''
+        }
+        display()
+
+         function add(i){
+            let box=inp.value
+            frults.push({title:box,done:false})
+            display()
+            alert('New File Added')
+            
+        }
+
+        function Delete(i){
+            frults.splice(inp.value,1)
+            display()
+        }
+
+        function Del(i){
+            frults.splice(i,1)
+            display()
+        }
+
+        function check(i){
+            let mark=document.getElementById('mark'+i)
+            let undo=document.getElementById('undo'+i)
+            let tr=document.querySelector('#tr'+i)
+
+             frults[i].done==true ? frults[i].done=false : frults[i].done=true
+
+            if(mark.style.display=='none'){
+                mark.style.display='block'
+                undo.innerHTML='undo'
+                //undo.style.background='black'
+                tr.style.background='blueviolet'
+            }
+            else{
+                mark.style.display='none'
+                undo.innerHTML='Check'
+                //undo.style.background='orange'
+                tr.style.background='grey'
+            }
+        }
+        /* function check(){
+            i = ++i % className.length
+        } */
+
+
+        let number= 40
+        let result
+
+
+    </script> -->
+
+    
+
+    <script>
+       let list=[{title:'Will debug in the morning', done:false}, {title:'Code in the Afternoon', done:false}]
+        
+        function display(){
+            todo.innerHTML=''
+            list.forEach(function(elem,i){
+            todo.innerHTML+=`<tr style=background:"${elem.done==true ?'red' : 'green'}">
+            <td>${i+1}</td>
+            <td>${list[i].title}</td>
+            <td><span class='fa fa-check text-success' id='mark${i}'style="display: ${elem.done==true ? 'block' : 'none'}; font-size: 20px;"> </span></td>
+            <td><button class='btn btn-light border-danger' id='undo${i}' style="background: orange; color: white; border: none;" onclick="view(${i})">${elem.done==true ? 'Undo' : 'Check'}</button></td>
+            <td> <button class="btn btn-light border-danger" style="background: red; color: white" onclick="Del(${i})">Clear</button></td>
+            </tr>`
+            inp.value=''
+            let pending=document.getElementById('pending')
+            pending.innerHTML=list.length
+        })
+        }
+        display()
+
+        function add(i){
+            let box=inp.value
+            list.push({title:box,done:false})
+            display()
+            
+        }
+        function Delete(){
+            let box=inp.value
+            list.splice(box,1)
+            display()
+        }
+
+        function Del(i){
+            let box=inp.value
+            list.splice(i,1)
+            display()
+        }
+        function view(i){
+            let check= document.getElementById('undo'+i)
+            let mark= document.getElementById('mark'+i)
+            
+            list[i].done==true ? list[i].done=false : list[i].done=true 
+
+
+            if(mark.style.display==='none'){
+                mark.style.display='block'
+                check.innerHTML='Undo'
+                check.style.background='black'
+                
+            }
+            else{
+                mark.style.display='none'
+                check.innerHTML='Check'
+                check.style.background='orange'
+            }
+        }
+
+    
+    </script>
+
+</body>
+</html>

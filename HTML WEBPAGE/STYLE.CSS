@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body{
+    font-family: cursive;
+    font-family: poppins;
+    background-image: url(illustration.svg);
+    background-repeat: no-repeat;
+    background-position:left ;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+nav{
+    height: 100px;
+    width: 100%;
+    background-color: #34495e;
+    position: fixed;
+}
+icon-bar {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+}
+label.logo{
+    color: white;
+    font-size: 25px;
+    padding: 0 100;
+    line-height: 80px;
+    margin-left: 50px;
+    font-weight: bold;
+    margin: 1em;
+}
+span{
+        font-weight: bold;
+        color: green;
+        text-shadow: 4px 3px 5px black;
+        
+}
+nav ul{
+    float: right;
+    margin: right;
+    
+    margin-top: px;
+}
+.Register{
+    background-color: rgb(84, 94, 84);
+    float: right;
+    margin-left: 10em;
+    margin-right: 4em;
+    position: sticky;
+}
+nav li{
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 60px;
+    
+}
+nav a{
+    color: white;
+    font-size: 18px;
+    text-decoration: uppercase;
+    padding: 7px 10px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    
+}
+a.active,a:hover{
+border: 1px solid;
+transition: .5s;
+border-radius: 1em;
+padding: 3px;
+}
+
+.Register{
+    background-color: green;
+    color: white;
+    text-decoration: none;
+    padding: 0px;
+    font-size: 1.4em;
+    border-radius: 5em;
+    float: right;
+    margin-right: 0px;
+}
+
+
+@media (max-width: 1048px){
+    label.logo{
+        font-size: 20px;
+        padding-left: 0px;
+        padding-right: 50px;
+    }
+    .Register{
+        background-color: green;
+        align-items: center;
+        margin-left: 0px;
+      } 
+    ul{
+        margin-right: 50px;
+    }
+    nav a{
+        font-size: 15px;
+       
+    }
+}
+@media(max-width: 909px){
+   mobile-menu{
+        display: block;
+    }
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2f3640;
+        top: 80px;
+        left: 0;
+        text-align: center;
+        font-size: 10px;
+        transition: all 5s
+    }
+    nav li{
+        display: block;
+    }
+    nav a{
+        font-size: 15px;
+    }
+    a .active,a:hover{
+        color: #3498db;
+        border: none;
+    }
+    nav ul.show{
+        left: 0px;
+       
+    }
+}
+html{
+    background-image: url(illustration.svg);
+    background-repeat: no-repeat;
+    background-position:left ;
+    background-size: cover;
+    background-attachment: fixed;
+}
